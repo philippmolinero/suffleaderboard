@@ -1,0 +1,238 @@
+---
+
+---
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abstinence Leaderboard</title>
+  <style>
+      body {
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          min-height: 100vh;
+          background: linear-gradient(to bottom, #020617, #0f172a);
+          color: #fff;
+      }
+
+      .container {
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .content {
+          width: 100%;
+          max-width: 896px;
+          margin-bottom: 24px;
+      }
+
+      .header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 32px;
+      }
+
+      .title {
+          font-size: 2.25rem;
+          font-weight: 700;
+          background: linear-gradient(to right, #fff, #cbd5e1);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+      }
+
+      .card {
+          border: 1px solid #1e293b;
+          border-radius: 8px;
+          background: rgba(15, 23, 42, 0.5);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      th, td {
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid #1e293b;
+      }
+
+      th {
+          color: #cbd5e1;
+          font-weight: 500;
+      }
+
+      tr:hover {
+          background: rgba(30, 41, 59, 0.5);
+      }
+
+      .rank-cell {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .medal-gold {
+          color: #eab308;
+      }
+
+      .medal-silver {
+          color: #94a3b8;
+      }
+
+      .medal-bronze {
+          color: #92400e;
+      }
+
+      .top-three {
+          color: #e2e8f0;
+      }
+
+      .default-text {
+          color: #94a3b8;
+      }
+
+      .jokers {
+          display: flex;
+          gap: 4px;
+      }
+
+      .positive-balance {
+          color: #f87171;
+      }
+
+      .zero-balance {
+          color: #4ade80;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="content">
+          <div class="header">
+              <div class="trophy">🏆</div>
+              <h1 class="title">Abstinence Leaderboard</h1>
+          </div>
+
+          <div class="card">
+              <table>
+                  <thead>
+                      <tr>
+                          <th style="width: 96px;">Rank</th>
+                          <th>Name</th>
+                          <th>Suff-Event</th>
+                          <th>Joker</th>
+                          <th style="text-align: right;">Penalty Balance</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Row 1 -->
+                      <tr>
+                          <td>
+                              <div class="rank-cell">
+                                  <span class="medal-gold">🥇</span>
+                                  <span class="top-three">1</span>
+                              </div>
+                          </td>
+                          <td class="top-three">John Doe</td>
+                          <td class="top-three">0</td>
+                          <td>
+                              <div class="jokers">
+                                  <span>🍺🍺🍺</span>
+                              </div>
+                          </td>
+                          <td style="text-align: right;">
+                              <span class="zero-balance">€0</span>
+                          </td>
+                      </tr>
+
+                      <!-- Row 2 -->
+                      <tr>
+                          <td>
+                              <div class="rank-cell">
+                                  <span class="medal-silver">🥈</span>
+                                  <span class="top-three">2</span>
+                              </div>
+                          </td>
+                          <td class="top-three">Tom Brown</td>
+                          <td class="top-three">1</td>
+                          <td>
+                              <div class="jokers">
+                                  🍺🍺
+                              </div>
+                          </td>
+                          <td style="text-align: right;">
+                              <span class="zero-balance">€0</span>
+                          </td>
+                      </tr>
+
+                      <!-- Row 3 -->
+                      <tr>
+                          <td>
+                              <div class="rank-cell">
+                                  <span class="medal-bronze">🥉</span>
+                                  <span class="top-three">3</span>
+                              </div>
+                          </td>
+                          <td class="top-three">Jane Smith</td>
+                          <td class="top-three">2</td>
+                          <td>
+                              <div class="jokers">
+                                  🍺
+                              </div>
+                          </td>
+                          <td style="text-align: right;">
+                              <span class="zero-balance">€0</span>
+                          </td>
+                      </tr>
+
+                      <!-- Row 4 -->
+                      <tr>
+                          <td>
+                              <div class="rank-cell">
+                                  <span class="default-text">4</span>
+                              </div>
+                          </td>
+                          <td class="default-text">Sarah Wilson</td>
+                          <td class="default-text">3</td>
+                          <td>
+                              <div class="jokers">
+                                  <!-- No jokers -->
+                              </div>
+                          </td>
+                          <td style="text-align: right;">
+                              <span class="zero-balance">€0</span>
+                          </td>
+                      </tr>
+
+                      <!-- Row 5 -->
+                      <tr>
+                          <td>
+                              <div class="rank-cell">
+                                  <span class="default-text">5</span>
+                              </div>
+                          </td>
+                          <td class="default-text">Mike Johnson</td>
+                          <td class="default-text">4</td>
+                          <td>
+                              <div class="jokers">
+                                  <!-- No jokers -->
+                              </div>
+                          </td>
+                          <td style="text-align: right;">
+                              <span class="positive-balance">€50</span>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</body>
