@@ -1,0 +1,12 @@
+---
+import Social from "./Social.astro"
+const year = new Date().getFullYear()
+const platform = "github" // Social platform
+const username = "molinero" // Social username
+
+---
+
+<footer>
+  <p>© {year}, Built by Molinero</p>
+  <Social platform={platform} username={username} />
+</footer>

@@ -1,0 +1,11 @@
+---
+
+const { platform, username} = Astro.props
+console.log(Astro.props)
+
+---
+
+
+<div class="social">
+  <a href={`www.${platform}.com`} target="_blank">GitHub/{username}</a>
+</div>
