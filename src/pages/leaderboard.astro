@@ -1,7 +1,5 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import data from '../data/data.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Penalty from '../components/Penalty.astro';
 
 const today = new Date();
@@ -12,21 +10,14 @@ const leaderboard = await fetch("../data/data.json")
   .then((res) => res.json())
   .catch((err) => console.error(err));
 
-  console.log(data);
 ---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-widt`h, initial-scale=1.0">
-  <title>Abstinenz Leaderboard</title>
-</head>
-<body>
-    <Header />
+<BaseLayout>
   <div class="container">
       <div class="content">
           <div class="header">
               <div class="trophy">🏆</div>
-              <h1 class="title">Abstinenz Leaderboard</h1>
+              <h2 class="title">Abstinenz Leaderboard</h2>
           </div>
           <h2 style="text-align: center;">Noch {daysLeft} Tage!</h2>
           <div class="card">
@@ -144,4 +135,4 @@ const leaderboard = await fetch("../data/data.json")
       </div>
   </div>
   <Penalty />
-</body>
+</BaseLayout>
