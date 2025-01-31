@@ -1,14 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Penalty from '../components/Penalty.astro';
+// import Penalty from '../components/Penalty.astro';
+import data from '../data/data.json';
 
 const today = new Date();
 const endDate = new Date('2025-06-06');
 const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-
-const leaderboard = await fetch("../data/data.json")
-  .then((res) => res.json())
-  .catch((err) => console.error(err));
 
 ---
 
@@ -27,112 +24,23 @@ const leaderboard = await fetch("../data/data.json")
                           <th style="width: 96px;">Platz</th>
                           <th>Name</th>
                           <th>x Suff</th>
-                          <th>Joker left</th>
-                          <th style="text-align: right;">Strafkonto</th>
+                          <th>Joker</th>
+                          <th>Strafkonto</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <!-- Row 1 -->
-                      <tr>
-                          <td>
-                              <div class="rank-cell">
-                                  <span class="medal-gold">🥇</span>
-                                  <span class="top-three">1</span>
-                              </div>
-                          </td>
-                          <td class="top-three">John Doe</td>
-                          <td class="top-three">0</td>
-                          <td>
-                              <div class="jokers">
-                                  <span>🍺🍺🍺</span>
-                              </div>
-                          </td>
-                          <td style="text-align: right;">
-                              <span class="zero-balance">€0</span>
-                          </td>
-                      </tr>
-
-                      <!-- Row 2 -->
-                      <tr>
-                          <td>
-                              <div class="rank-cell">
-                                  <span class="medal-silver">🥈</span>
-                                  <span class="top-three">2</span>
-                              </div>
-                          </td>
-                          <td class="top-three">Tom Brown</td>
-                          <td class="top-three">1</td>
-                          <td>
-                              <div class="jokers">
-                                  🍺🍺
-                              </div>
-                          </td>
-                          <td style="text-align: right;">
-                              <span class="zero-balance">€0</span>
-                          </td>
-                      </tr>
-
-                      <!-- Row 3 -->
-                      <tr>
-                          <td>
-                              <div class="rank-cell">
-                                  <span class="medal-bronze">🥉</span>
-                                  <span class="top-three">3</span>
-                              </div>
-                          </td>
-                          <td class="top-three">Jane Smith</td>
-                          <td class="top-three">2</td>
-                          <td>
-                              <div class="jokers">
-                                  🍺
-                              </div>
-                          </td>
-                          <td style="text-align: right;">
-                              <span class="zero-balance">€0</span>
-                          </td>
-                      </tr>
-
-                      <!-- Row 4 -->
-                      <tr>
-                          <td>
-                              <div class="rank-cell">
-                                  <span class="default-text">4</span>
-                              </div>
-                          </td>
-                          <td class="default-text">Sarah Wilson</td>
-                          <td class="default-text">3</td>
-                          <td>
-                              <div class="jokers">
-                                  <!-- No jokers -->
-                              </div>
-                          </td>
-                          <td style="text-align: right;">
-                              <span class="zero-balance">€0</span>
-                          </td>
-                      </tr>
-
-                      <!-- Row 5 -->
-                      <tr>
-                          <td>
-                              <div class="rank-cell">
-                                  <span class="default-text">5</span>
-                              </div>
-                          </td>
-                          <td class="default-text">Mike Johnson</td>
-                          <td class="default-text">4</td>
-                          <td>
-                              <div class="jokers">
-                                  <!-- No jokers -->
-                              </div>
-                          </td>
-                          <td style="text-align: right;">
-                              <span class="positive-balance">€50</span>
-                          </td>
-                      </tr>
+                    {data.map(player => (
+                        <tr>
+                            <td><p>{`Platz ` + player.platz}</p></td>
+                            <td><p>{player.name}</p></td>
+                            <td><p>{player.suff}</p></td>
+                            <td><p>{player.joker}</p></td>
+                            <td><p>{player.strafe}EUR</p></td>
+                        </tr>
+                        ))}
                   </tbody>
               </table>
           </div>
       </div>
   </div>
-  <Penalty />
 </BaseLayout>

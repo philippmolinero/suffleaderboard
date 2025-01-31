@@ -1,9 +1,8 @@
 [
-  {   "name": "Jane Smith", "age": 28, "email": "" },
-  {   "name": "Jane Smith", "age": 28, "email": "" },
-  {   "name": "Jane Smith", "age": 28, "email": "" },
-  {   "name": "Jane Smith", "age": 28, "email": "" },
-  {   "name": "Jane Smith", "age": 28, "email": "" },
-  {   "name": "Jane Smith", "age": 28, "email": "" }
+  {  "platz": "1", "name": "Moewe", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "2", "name": "Nobbi", "suff": 0, "joker": 3,"strafe": 0, "lastUpdate": ""},
+  {  "platz": "3", "name": "Rotti", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "4", "name": "Matthias", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "5", "name": "Nico", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "6", "name": "Philipp", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""}
 ]
-
