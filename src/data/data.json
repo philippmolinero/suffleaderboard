@@ -1,8 +1,8 @@
 [
-  {  "platz": "1", "name": "Moewe", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
-  {  "platz": "2", "name": "Nobbi", "suff": 0, "joker": 3,"strafe": 0, "lastUpdate": ""},
-  {  "platz": "3", "name": "Rotti", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
-  {  "platz": "4", "name": "Matthias", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
-  {  "platz": "5", "name": "Nico", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
-  {  "platz": "6", "name": "Philipp", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""}
+  {  "platz": "", "name": "Martin", "suff": 0, "joker": 3, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "", "name": "Robert", "suff": 2, "joker": 1,"strafe": 0, "lastUpdate": ""},
+  {  "platz": "", "name": "Rotti", "suff": 2, "joker": 1, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "", "name": "Matthias", "suff": 2, "joker": 1, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "", "name": "Nico", "suff": 2, "joker": 1, "strafe": 0, "lastUpdate": ""},
+  {  "platz": "", "name": "Philipp", "suff": 1, "joker": 2, "strafe": 0, "lastUpdate": ""}
 ]

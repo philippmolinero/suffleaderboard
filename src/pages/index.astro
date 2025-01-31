@@ -1,8 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "Home Page"
+import data from '../data/data.json';
+
+const today = new Date();
+const endDate = new Date('2025-06-01');
+const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+const penalytSum = data.reduce((sum, obj) => sum + obj.strafe, 0);
+
+// Sort in ascending order - by suff property
+const sortedPlayerAsc = data.sort( (a,b) => a.suff - b.suff );
+
+const pageTitle = 'Abstinenz Ranking';
 ---
 
-<BaseLayout pageTitle={title}>
-  <h2>hellooooooooo</h2>
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+      <div class="content">
+          <div class="header">
+              <div class="trophy">🏆</div>
+              <h2 class="title">Abstinenz Ranking</h2>
+          </div>
+          <div style="text-align: center;">
+              <h2 style="text-align: center;">Noch {daysLeft} Tage!)</h2>
+              <h3>Gemeinschaftskasse: {penalytSum} EUR</h3>
+            </div>
+          <div class="card">
+              <table>
+                  <thead>
+                      <tr>
+                          <!-- <th>Platz</th> -->
+                          <th>Name</th>
+                          <th>x Suff</th>
+                          <th>Joker</th>
+                          <th style="text-align: center;">Strafkonto</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {sortedPlayerAsc.map(player => (
+                        <tr>
+                            {/* <td><p>{`Platz ` + player.platz}</p></td> */}
+                            <td><p>{player.name}</p></td>
+                            <td><p>{player.suff}</p></td>
+                            <td><p>{player.joker}</p></td>
+                            <td style="text-align: center;"><p>{player.strafe} EUR</p></td>
+                        </tr>
+                        ))}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
 </BaseLayout>
