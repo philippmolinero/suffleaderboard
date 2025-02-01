@@ -8,9 +8,27 @@ const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 
 const penalytSum = data.reduce((sum, obj) => sum + obj.strafe, 0);
 
 // Sort in ascending order - by suff property
-const sortedPlayerAsc = data.sort( (a,b) => a.suff - b.suff );
-
+const sortedPlayerAsc = data.sort((a, b) => b.suff - a.suff );
 const pageTitle = 'Abstinenz Ranking';
+
+// explain how to get the icon
+const getIcon = (index, totalPlayers) => {
+    if (index === totalPlayers - 1) { // Handle last place separately
+        return '😭';
+    }
+    switch (index) {
+        case 0:
+            return '🥇';
+        case 1:
+            return '🥈';
+        case 2:
+            return '🥉';
+        default:
+            return '';
+    }
+};
+
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -28,7 +46,7 @@ const pageTitle = 'Abstinenz Ranking';
               <table>
                   <thead>
                       <tr>
-                          <!-- <th>Platz</th> -->
+                          <th style="width: 96px;"></th>
                           <th>Name</th>
                           <th>x Suff</th>
                           <th>Joker</th>
@@ -36,9 +54,9 @@ const pageTitle = 'Abstinenz Ranking';
                       </tr>
                   </thead>
                   <tbody>
-                    {sortedPlayerAsc.map(player => (
+                    {sortedPlayerAsc.map((player, index) => (
                         <tr>
-                            {/* <td><p>{`Platz ` + player.platz}</p></td> */}
+                            {<td style="width: 96px;"><p>{getIcon(index, sortedPlayerAsc.length)}</p></td>}
                             <td><p>{player.name}</p></td>
                             <td><p>{player.suff}</p></td>
                             <td><p>{player.joker}</p></td>
