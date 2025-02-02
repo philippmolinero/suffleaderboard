@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../data/data.json';
 
 const today = new Date();
-const endDate = new Date('2025-06-01');
-const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+const endDate = '2025-06-01';
+// const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 const penalytSum = data.reduce((sum, obj) => sum + obj.strafe, 0);
+const diffDays = Math.ceil((new Date(endDate).getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
 // Sort in ascending order - by suff property
 const sortedPlayerAsc = data.sort((a, b) => b.suff - a.suff );
@@ -39,7 +40,7 @@ const getIcon = (index, totalPlayers) => {
               <h2 class="title">Abstinenz Ranking</h2>
           </div>
           <div style="text-align: center;">
-              <h2 style="text-align: center;">Noch {daysLeft} Tage!</h2>
+              <h2 style="text-align: center;">Noch {diffDays} Tage!</h2>
               <h3>Gemeinschaftskasse: {penalytSum} EUR</h3>
             </div>
           <div class="card">
@@ -69,3 +70,23 @@ const getIcon = (index, totalPlayers) => {
       </div>
   </div>
 </BaseLayout>
+<script>
+     // Parse the target date from the string provided in the Astro frontmatter
+      const endDate = new Date("{endDate}");
+
+      // Function to calculate the number of days left
+      function updateCounter() {
+        const today = new Date();
+        const diffTime = endDate.getTime() - today.getTime();
+        // Calculate the difference in days, rounding up to account for partial days
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        // document.getElementById("counter").textContent = diffDays;
+      }
+
+      // Call the function immediately when the page loads
+      updateCounter();
+
+      // Optionally, update the counter periodically (every minute, in this example)
+      // This is useful if a visitor keeps the page open and you want the counter to refresh.
+      setInterval(updateCounter, 60000); // 60000ms = 1 minute
+</script>
