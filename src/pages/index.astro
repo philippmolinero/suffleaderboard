@@ -2,17 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../data/data.json';
 
-const today = new Date();
-const endDate = '2025-06-01';
-// const daysLeft = Math.ceil((endDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+// Calculate the total sum of all strafe values
 const penalytSum = data.reduce((sum, obj) => sum + obj.strafe, 0);
-const diffDays = Math.ceil((new Date(endDate).getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
 // Sort in ascending order - by suff property
 const sortedPlayerAsc = data.sort((a, b) => b.suff - a.suff );
+
 const pageTitle = 'Abstinenz Ranking';
 
-// explain how to get the icon
+// Function to get the correct emoji icon based on the player's position (index) in the sorted array (sortedPlayerAsc)
 const getIcon = (index, totalPlayers) => {
     if (index === totalPlayers - 1) { // Handle last place separately
         return '😭';
@@ -36,11 +34,11 @@ const getIcon = (index, totalPlayers) => {
   <div class="container">
       <div class="content">
           <div class="header">
-              <div class="trophy">🏆</div>
-              <h2 class="title">Abstinenz Ranking</h2>
-          </div>
-          <div style="text-align: center;">
-              <h2 style="text-align: center;">Noch {diffDays} Tage!</h2>
+              <div class="header-logo">
+                <span class="trophy">🏆</span>
+                <h1 class="title">Abstinenz Ranking</h1>
+            </div>
+              <h2 style="text-align: center;" id="counter">hi</h2>
               <h3>Gemeinschaftskasse: {penalytSum} EUR</h3>
             </div>
           <div class="card">
@@ -72,7 +70,9 @@ const getIcon = (index, totalPlayers) => {
 </BaseLayout>
 <script>
      // Parse the target date from the string provided in the Astro frontmatter
-      const endDate = new Date("{endDate}");
+      
+
+     const endDate = new Date("2025-06-01");
 
       // Function to calculate the number of days left
       function updateCounter() {
@@ -80,7 +80,7 @@ const getIcon = (index, totalPlayers) => {
         const diffTime = endDate.getTime() - today.getTime();
         // Calculate the difference in days, rounding up to account for partial days
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        // document.getElementById("counter").textContent = diffDays;
+        document.getElementById('counter').textContent = `Noch ${diffDays} Tage bis zum ${endDate.toLocaleDateString('de-DE')}`;
       }
 
       // Call the function immediately when the page loads
