@@ -1,7 +1,7 @@
 [
   {  "platz": "", "name": "Martin", "suff": 4, "joker": 0, "strafe": 50, "lastUpdate": ""},
   {  "platz": "", "name": "Robert", "suff": 5, "joker": 0,"strafe": 100, "lastUpdate": ""},
-  {  "platz": "", "name": "Rotti", "suff": 4, "joker": 0, "strafe": 50, "lastUpdate": ""},
+  {  "platz": "", "name": "Rotti", "suff": 5, "joker": 0, "strafe": 100, "lastUpdate": ""},
   {  "platz": "", "name": "Matthias", "suff": 5, "joker": 0, "strafe": 100, "lastUpdate": ""},
   {  "platz": "", "name": "Nico", "suff": 8, "joker": 0, "strafe": 250, "lastUpdate": ""},
   {  "platz": "", "name": "Philipp", "suff": 8, "joker": 0, "strafe": 250, "lastUpdate": ""}
